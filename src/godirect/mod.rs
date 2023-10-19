@@ -1,8 +1,10 @@
 pub use constants::*;
 pub use sensor::*;
 
+pub mod backend;
 pub mod ble_device;
 pub mod constants;
+pub mod device;
 pub mod sensor;
 pub mod usb_device;
 

@@ -28,10 +28,10 @@ pub struct MeasurementInfo {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Sensor {
-    number: u8,
-    name: String,
-    unit: String,
-    id: String,
-    mutual_exclusion_mask: u32,
-    measurement_info: MeasurementInfo,
+    pub number: u8,
+    pub name: String,
+    pub unit: String,
+    pub id: String,
+    pub mutual_exclusion_mask: u32,
+    pub measurement_info: MeasurementInfo,
 }

@@ -1,3 +1,30 @@
+pub use super::backend::{BackendError, DeviceBackend};
+pub use super::sensor::Sensor;
+
+pub struct Device {
+    name: String,
+    serial: String,
+    sensors: Vec<Sensor>,
+    backend: DeviceBackend,
+    opened: bool,
+    sampling: bool,
+    last_error: Option<BackendError>,
+}
+
+impl Device {
+    pub fn new(backend: DeviceBackend, name: String) -> Self {
+        Self {
+            name,
+            serial: "1234".to_string(),
+            sensors: Vec::new(),
+            backend: DeviceBackend,
+            opened: false,
+            sampling: false,
+            last_error: None,
+        }
+    }
+}
+
 /*
 import { commands, measurementType, responseType } from './constants.js';
 import { bufferToHex, appendBuffer, log, dir, EventEmitter, nonZero } from './utils.js';
