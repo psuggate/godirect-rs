@@ -3,6 +3,7 @@ pub use sensor::*;
 
 pub mod backend;
 pub mod ble_device;
+pub mod command;
 pub mod constants;
 pub mod device;
 pub mod sensor;

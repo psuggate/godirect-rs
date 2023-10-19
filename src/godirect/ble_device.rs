@@ -1,7 +1,7 @@
-use btleplug::{Adapter, Manager};
+use btleplug::{Adapter, Manager, Peripheral};
 use std::time::Duration;
 
-use super::backend::{BackendError, DeviceBackend};
+use super::backend::{Backend, BackendError};
 
 pub const SERVICE: str = "d91714ef-28b9-4f91-ba16-f0d9a604f112";
 pub const COMMAND_CHARACTERISTIC: str = "f4bf14a6-c7d5-4b6d-8aa8-df1a7c83adcb";
@@ -11,14 +11,15 @@ pub const RESPONSE_CHARACTERISTIC: str = "b41e6675-a329-40e0-aa01-44d2f444babe";
 pub struct BleBackend {
     manager: Manager,
     central: Adapter,
+    device: Peripheral,
 }
 
-impl DeviceBacked for BleBackend {
+impl Backend for BleBackend<Peripheral> {
     fn scan(&mut self) -> Result<Vec<u8>, BackendError> {
         Ok(Vec::new())
     }
 
-    fn connect(&mut self, device: String) -> Result<(), BackendError> {
+    fn connect(&mut self, device: Peripheral) -> Result<(), BackendError> {
         Ok(())
     }
 
