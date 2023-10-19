@@ -1,0 +1,50 @@
+/**
+ * Go Direct command/response constants, from 'constants.js'.
+ */
+pub const HEADER: [u8; 4] = [0x58, 0x00, 0x00, 0x00];
+
+pub const INIT: [u8; 21] = [
+    0x1a, 0xa5, 0x4a, 0x06, 0x49, 0x07, 0x48, 0x08, 0x47, 0x09, 0x46, 0x0a, 0x45, 0x0b, 0x44, 0x0c,
+    0x43, 0x0d, 0x42, 0x0e, 0x41,
+];
+
+pub const START_MEASUREMENTS: [u8; 15] = [
+    0x18, 0xff, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+];
+
+pub const STOP_MEASUREMENTS: [u8; 7] = [0x19, 0xff, 0x00, 0xff, 0xff, 0xff, 0xff];
+
+pub const SET_MEASUREMENT_PERIOD: [u8; 11] = [
+    0x1b, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+];
+
+pub const DISCONNECT: [u8; 1] = [0x54];
+pub const GET_INFO: [u8; 1] = [0x55];
+pub const GET_STATUS: [u8; 1] = [0x10];
+pub const GET_SENSOR_IDS: [u8; 1] = [0x51];
+pub const GET_SENSOR_INFO: [u8; 2] = [0x50, 0x00];
+pub const GET_DEFAULT_SENSORS_MASK: [u8; 1] = [0x56];
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub enum MeasType {
+    NORMAL_REAL32 = 0x06,
+    WIDE_REAL32 = 0x07,
+    APERIODIC_REAL32 = 0x0a,
+    SINGLE_CHANNEL_REAL32 = 0x08,
+    SINGLE_CHANNEL_INT32 = 0x09,
+    APERIODIC_INT32 = 0x0b,
+    START_TIME = 0x0c,
+    DROPPED = 0x0d,
+    PERIOD = 0x0e,
+}
+
+// Header byte of a response that indicates a measurement/samples payload
+pub const MEASUREMENT: u8 = 0x20;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub enum ChargingState {
+    IDLE = 0,
+    CHARGING = 1,
+    COMPLETE = 2,
+    ERROR = 3,
+}
