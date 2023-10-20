@@ -1,21 +1,16 @@
-pub use super::backend::{BackendError, DeviceBackend};
+pub use super::backend::Backend;
+pub use super::common::*;
 pub use super::sensor::Sensor;
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
-pub struct DeviceId {
-    vendor_id: u16,
-    product_id: u16,
-}
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Device {
     name: String,
     serial: String,
     sensors: Vec<Sensor>,
-    backend: DeviceBackend,
+    backend: Backend,
     opened: bool,
     sampling: bool,
-    last_error: Option<BackendError>,
+    last_error: Option<GoDirectError>,
 }
 
 impl Device {

@@ -2,14 +2,13 @@ pub use constants::*;
 pub use sensor::*;
 
 pub mod backend;
-pub mod ble_device;
+pub mod bluetooth;
 pub mod command;
+pub mod common;
 pub mod constants;
 pub mod device;
 pub mod sensor;
 pub mod usb_device;
-
-pub const BLE_AUTO_CONNECT_RSSI_THRESHOLD: i8 = -50;
 
 /**
  * The godirect module wraps the hidapi and bleak modules to create an easy way to
