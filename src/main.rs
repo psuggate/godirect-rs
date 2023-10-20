@@ -3,14 +3,13 @@ use btleplug::api::{
 };
 use btleplug::platform::{Adapter, Manager};
 use futures::stream::StreamExt;
-use log::info;
 use std::error::Error;
+// use log::info;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     pretty_env_logger::init();
 
-    info!("Hello, world!");
     let manager: Manager = Manager::new().await.unwrap();
     let central: Adapter = manager
         .adapters()

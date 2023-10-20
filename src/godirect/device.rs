@@ -1,6 +1,13 @@
 pub use super::backend::{BackendError, DeviceBackend};
 pub use super::sensor::Sensor;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub struct DeviceId {
+    vendor_id: u16,
+    product_id: u16,
+}
+
+#[derive(Debug, Clone, PartialEq)]
 pub struct Device {
     name: String,
     serial: String,

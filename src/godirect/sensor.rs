@@ -17,12 +17,12 @@ pub enum MeasMode {
 pub struct MeasurementInfo {
     pub meas_type: ValueType,
     pub meas_mode: MeasMode,
-    pub min_value: f64,   // in sensor units (e.g., mV, Pa, ...)
-    pub max_value: f64,   // in sensor units (e.g., mV, Pa, ...)
+    pub min_value: f64, // in sensor units (e.g., mV, Pa, ...)
+    pub max_value: f64, // in sensor units (e.g., mV, Pa, ...)
     pub uncertainty: f64, // in sensor units (e.g., mV, Pa, ...)
-    pub min_period: u32,  // milliseconds
-    pub max_period: u32,  // milliseconds
-    pub typ_period: u32,  // milliseconds
+    pub min_period: u32, // milliseconds
+    pub max_period: u32, // milliseconds
+    pub typ_period: u32, // milliseconds
     pub granularity: u32, // milliseconds
 }
 
